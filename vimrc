@@ -13,6 +13,7 @@ Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 
