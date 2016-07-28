@@ -1,6 +1,10 @@
 " Enable syntax highlighting by default
 syntax enable
 
+" Display line numbers
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE<Paste>
+
 " Plugin management
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
