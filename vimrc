@@ -18,6 +18,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 
