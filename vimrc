@@ -32,6 +32,9 @@ set background=dark " for the dark version
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
+" Don't close NERDTree when opening a file
+let NERDTreeQuitOnOpen=0
+
 " Highlight trailing whitespace
 match ErrorMsg '\s\+$'
 
