@@ -27,3 +27,8 @@ let g:vim_markdown_folding_disabled = 1
 
 set background=dark " for the dark version
 " set background=light " for the light version
+
+" http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+autocmd Filetype ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
