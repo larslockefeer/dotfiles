@@ -12,8 +12,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
 Plug 'keith/swift.vim'
 Plug 'plasticboy/vim-markdown'
-Plug 'rakr/vim-one'
-Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-sensible'
@@ -21,14 +19,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-ruby/vim-ruby'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline'
+
+" Color schemes
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
 " No folding by default for VIM Markdown
 let g:vim_markdown_folding_disabled = 1
-
-set background=dark " for the dark version
-" set background=light " for the light version
 
 " http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -55,4 +55,8 @@ autocmd BufWritePre     * :call TrimWhiteSpace()
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-
+" Colors
+set background=dark
+" set background=light " for the light version
+colorscheme deep-space
+let g:airline_theme='deep_space'
