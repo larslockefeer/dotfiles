@@ -26,4 +26,15 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+### Plugins
+
+* Goyo for focused writing
+* vim-markdown for Markdown support
+* vim-sensible for sensible defaults
+* nerdtree for file system navigation
+* tagbar for source code navigation (depends on ctags, and a ~/.ctags file for some languages)
+* gist-vim for Gist integration
+* vim-ruby for Ruby support
+* yats for Typescript support
+
 See http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/ for the approach taken. This is very much a work in progress.

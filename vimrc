@@ -19,6 +19,8 @@ Plug 'mattn/gist-vim'
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-ruby/vim-ruby'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -31,6 +33,7 @@ set background=dark " for the dark version
 " http://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype typescript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " Don't close NERDTree when opening a file
 let NERDTreeQuitOnOpen=0
@@ -48,4 +51,8 @@ autocmd FileWritePre    * :call TrimWhiteSpace()
 autocmd FileAppendPre   * :call TrimWhiteSpace()
 autocmd FilterWritePre  * :call TrimWhiteSpace()
 autocmd BufWritePre     * :call TrimWhiteSpace()
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 
