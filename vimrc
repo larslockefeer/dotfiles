@@ -60,3 +60,8 @@ set background=dark
 " set background=light " for the light version
 colorscheme deep-space
 let g:airline_theme='deep_space'
+
+" More natural Split behaviour
+" See: https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+set splitbelow
+set splitright
