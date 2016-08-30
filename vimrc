@@ -20,6 +20,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
 
 " Color schemes
 Plug 'tyrannicaltoucan/vim-deep-space'
