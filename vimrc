@@ -62,15 +62,6 @@ set background=dark
 colorscheme deep-space
 let g:airline_theme='deep_space'
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, remove the outermost $TMUX check.
-if (empty($TMUX))
-    "For Neovim 0.1.5+ and Vim 7.4.1799+
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
-
 " More natural Split behaviour
 " See: https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 set splitbelow
