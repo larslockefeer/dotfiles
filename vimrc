@@ -66,3 +66,6 @@ let g:airline_theme='deep_space'
 " See: https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 set splitbelow
 set splitright
+
+" Always copy to the OS X clipboard
+set clipboard+=unnamedplus
