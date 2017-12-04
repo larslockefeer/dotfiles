@@ -48,14 +48,8 @@ ZSH_THEME="robbyrussell"
 plugins=(git git-flow-completion brew compleat encode64 web-search thefuck)
 
 # User configuration
-
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
-
-# RVM
-export PATH="$PATH:/Users/larslockefeer/.rvm/scripts/rvm"
 
 # Android SDK location
 export ANDROID_HOME="/Users/larslockefeer/Library/Android/sdk"
@@ -99,7 +93,7 @@ alias xcode-select-beta="sudo xcode-select --switch /Applications/Xcode-beta.app
 # See: http://unix.stackexchange.com/questions/51818/is-it-possible-to-include-file-in-config-file-of-zsh-how
 if [ -f ~/.zsh/.private ]; then
     source ~/.zsh/.private
-else
-    print "404: ~/.zsh/.private not found."
 fi
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

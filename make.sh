@@ -12,6 +12,9 @@ files="zshrc vimrc ctags"  	# list of files/folders to symlink in homedir
 
 ##########
 
+echo "Installing dependencies"
+./install-dependencies.sh
+
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
