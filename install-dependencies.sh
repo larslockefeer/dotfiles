@@ -18,7 +18,21 @@ which thefuck >/dev/null 2>&1 || (
 
 which nvim >/dev/null 2>&1 || (
   echo "Installing neovim";
-  brew install neovim
+  brew install neovim;
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+)
+
+# Java 8
+which java >/dev/null 2>&1 || (
+  echo "Installing Java";
+  brew cask install caskroom/versions/java8
+)
+
+# Maven
+which mvn >/dev/null 2>&1 || (
+  echo "Installing MVN";
+  brew install maven
 )
 
 # RVM & Ruby 2.3.0
