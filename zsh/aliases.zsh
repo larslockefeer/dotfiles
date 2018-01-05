@@ -67,3 +67,8 @@ alias 'rm=rm -i'
 
 # Force tmux to use 256 colors
 alias tmux='TERM=screen-256color-bce tmux'
+
+# -------------------------------------------------------------------
+# 10X developer
+# -------------------------------------------------------------------
+alias 'bs=bundle install && bundle exec pod install'
