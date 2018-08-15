@@ -23,6 +23,12 @@ which nvim >/dev/null 2>&1 || (
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 )
 
+which sdkmanager >/dev/null 2>&1 || (
+  echo "Installing Android SDK tools"
+  brew tap caskroom/cask
+  brew cask install android-sdk
+)
+
 # Java 8
 which java >/dev/null 2>&1 || (
   echo "Installing Java";
@@ -33,6 +39,12 @@ which java >/dev/null 2>&1 || (
 which mvn >/dev/null 2>&1 || (
   echo "Installing MVN";
   brew install maven
+)
+
+# Gradle
+which gradle >/dev/null 2>&1 || (
+  echo "Installing Gradle";
+  brew install gradle
 )
 
 # RVM & Ruby 2.3.0
