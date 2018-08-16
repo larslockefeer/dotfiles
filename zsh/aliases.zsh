@@ -55,6 +55,9 @@ alias gta='git tag -a -m'
 alias gf='git reflog'
 alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort -nr'
 
+# List and subsequently delete all merged branches, see http://stackoverflow.com/questions/7726949/remove-local-branches-no-longer-on-remote
+alias gitclean='git branch >/tmp/merged-branches && vi /tmp/merged-branches && xargs git branch -D </tmp/merged-branches'
+
 # curiosities
 # gsh shows the number of commits for the current repos for all developers
 alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
