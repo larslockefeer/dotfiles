@@ -47,6 +47,18 @@ which mongo >/dev/null 2>&1 || (
   brew install mongo
 )
 
+# jq
+which jq >/dev/null 2>&1 || (
+  echo "Installing jq";
+  brew install jq
+)
+
+# xmlstarlet
+which xmlstarlet >/dev/null 2>&1 || (
+  echo "Installing xmlstarlet";
+  brew install xmlstarlet
+)
+
 # Android SDK Tools
 which sdkmanager >/dev/null 2>&1 || (
   echo "Installing Android SDK tools"
