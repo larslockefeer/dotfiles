@@ -2,7 +2,7 @@
 # Oh my ZSH
 which zsh >/dev/null 2>&1 || (
   echo "Installing zsh";
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 )
 
 # Homebrew + dependencies
@@ -23,14 +23,8 @@ which nvim >/dev/null 2>&1 || (
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 )
 
-which sdkmanager >/dev/null 2>&1 || (
-  echo "Installing Android SDK tools"
-  brew tap caskroom/cask
-  brew cask install android-sdk
-)
-
 # Java 8
-which java >/dev/null 2>&1 || (
+brew cask list | grep java8 2>&1 || (
   echo "Installing Java";
   brew cask install caskroom/versions/java8
 )
@@ -45,6 +39,19 @@ which mvn >/dev/null 2>&1 || (
 which gradle >/dev/null 2>&1 || (
   echo "Installing Gradle";
   brew install gradle
+)
+
+# Mongo
+which mongo >/dev/null 2>&1 || (
+  echo "Installing mongo";
+  brew install mongo
+)
+
+# Android SDK Tools
+which sdkmanager >/dev/null 2>&1 || (
+  echo "Installing Android SDK tools"
+  brew tap caskroom/cask
+  brew cask install android-sdk
 )
 
 # RVM & Ruby 2.3.0
@@ -64,4 +71,10 @@ which rvm >/dev/null 2>&1 || (
 which nvm >/dev/null 2>&1 || (
   echo "Installing nvm";
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash;
+)
+
+# Yarn
+which yarn >/dev/null 2>&1 || (
+  echo "Installing yarn";
+  brew install yarn
 )
