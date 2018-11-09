@@ -79,4 +79,4 @@ alias 'bs=bundle install && bundle exec pod install'
 # Building PRP, in various flavours
 alias 'build=mvn clean install'
 alias 'quickbuild=mvn clean install -DskipTests -Dverification.skip'
-alias 'fullbuild=mvn -T 1.0C clean install -Pintegration-tests'
+alias 'fullbuild=mvn -T 1.0C clean install -Pintegration-tests -Drabbitmq.local -Dmongodb.local'
