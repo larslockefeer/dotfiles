@@ -1,7 +1,7 @@
 # Usage
 
 # Clone this repository in your home repository
-# `cd dotfiles`
+# `mv dotfiles .dotfiles && cd dotfiles`
 # `./make.sh`
 
 This will sync all dotfiles in this repository.

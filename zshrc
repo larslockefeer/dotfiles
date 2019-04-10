@@ -23,10 +23,11 @@ plugins=(
   git
 )
 
-SCRIPT_PATH="${HOME}/.dotfiles"
+SCRIPT_PATH="$(dirname "${0}")"
 source $ZSH/oh-my-zsh.sh
 source "${SCRIPT_PATH}/z/z.sh"
 source "${SCRIPT_PATH}/zsh/aliases.zsh"
+source "${SCRIPT_PATH}/zsh/environment.zsh"
 source "${SCRIPT_PATH}/zsh/functions.zsh"
 source "${SCRIPT_PATH}/zsh/history.zsh"
 source "${SCRIPT_PATH}/zsh/path.zsh"
@@ -55,10 +56,6 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-# Android SDK
-export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-export ANDROID_HOME="/usr/local/share/android-sdk"
 
 # The Fuck
 eval $(thefuck --alias)

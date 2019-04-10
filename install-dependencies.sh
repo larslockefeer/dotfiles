@@ -1,9 +1,17 @@
+#!/bin/bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
 
 # Oh my ZSH
 which zsh >/dev/null 2>&1 || (
   echo "Installing zsh";
-  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 )
+
+# Change default shell
+echo "$(which zsh)" | sudo tee -a /etc/shells
+chsh -s $(which zsh)
 
 # Homebrew + dependencies
 which brew >/dev/null 2>&1 || (
@@ -16,17 +24,10 @@ which thefuck >/dev/null 2>&1 || (
   brew install thefuck
 )
 
-which nvim >/dev/null 2>&1 || (
-  echo "Installing neovim";
-  brew install neovim;
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-)
-
-# Java 8
-brew cask list | grep java8 2>&1 || (
+# Java 11
+brew cask list | grep java 2>&1 || (
   echo "Installing Java";
-  brew cask install caskroom/versions/java8
+  brew cask install java
 )
 
 # Maven
@@ -70,7 +71,7 @@ which sdkmanager >/dev/null 2>&1 || (
 which rvm >/dev/null 2>&1 || (
   echo "Installing rvm";
   gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB;
-  \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.0;
+  \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.0 --with-openssl-dir=$HOME/.rvm/usr;
 )
 
 # Bundler
