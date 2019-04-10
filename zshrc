@@ -1,10 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+theme="robbyrussell"
 
 # Uncomment the following line to change 
 # export UPDATE_ZSH_DAYS=13   # How often to auto-update (in days).
@@ -23,7 +20,7 @@ plugins=(
   git
 )
 
-SCRIPT_PATH="$(dirname "${0}")"
+SCRIPT_PATH="$HOME/.dotfiles"
 source $ZSH/oh-my-zsh.sh
 source "${SCRIPT_PATH}/z/z.sh"
 source "${SCRIPT_PATH}/zsh/aliases.zsh"
@@ -59,3 +56,7 @@ load-nvmrc
 
 # The Fuck
 eval $(thefuck --alias)
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
