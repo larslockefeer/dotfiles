@@ -4,10 +4,8 @@
 set -e
 
 # Oh my ZSH
-which zsh >/dev/null 2>&1 || (
-  echo "Installing zsh";
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
-)
+echo "Installing zsh";
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
 
 # Change default shell
 echo "$(which zsh)" | sudo tee -a /etc/shells
