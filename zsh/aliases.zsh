@@ -75,6 +75,7 @@ alias tmux='TERM=screen-256color-bce tmux'
 # 10X developer
 # -------------------------------------------------------------------
 alias 'bs=bundle install && bundle exec pod install'
+alias 'password=openssl rand -base64 256 | md5 |head -c32;echo'
 
 # Building PRP, in various flavours
 alias 'build=mvn clean install'
