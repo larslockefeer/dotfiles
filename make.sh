@@ -7,7 +7,7 @@
 ########## Variables
 dir=~/.dotfiles           # dotfiles directory
 olddir=~/.dotfiles_old    # old dotfiles backup directory
-files="zshrc tmux"       # list of files/folders to symlink in homedir
+files="zshrc tmux gitconfig"       # list of files/folders to symlink in homedir
 ##########
 
 echo "Installing dependencies"
