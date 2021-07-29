@@ -62,6 +62,8 @@ nvm install node
 # Post-install phoenix things
 test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.js
 
+# Post-install karabiner things
+test -L ~/.config/karabiner || ln -s ~/.dotfiles/config/karabiner ~/.config/karabiner
 
 # Fonts
 brew tap homebrew/cask-fonts
