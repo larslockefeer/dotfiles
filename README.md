@@ -1,7 +1,8 @@
 # Usage
 
-* Clone this repository in your home repository
-* `mv dotfiles .dotfiles && cd dotfiles`
+* Clone this repository
+* Move it to your home directory `mv dotfiles .dotfiles && cd dotfiles`, or create a soft link `ln -s {path_to_repository_clone} ~/.dotfiles`
+* `cd ~/.dotfiles`
 * `./make.sh`
 
 This will sync all dotfiles in this repository.
