@@ -42,7 +42,7 @@ which brew >/dev/null 2>&1 || (
 brew tap mongodb/brew
 
 # Consider: android-sdk
-casks="iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify"
+casks="iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel"
 for i in $casks
 do
   install_cask $i
