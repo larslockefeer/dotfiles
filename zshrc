@@ -28,6 +28,7 @@ source "${SCRIPT_PATH}/zsh/environment.zsh"
 source "${SCRIPT_PATH}/zsh/functions.zsh"
 source "${SCRIPT_PATH}/zsh/history.zsh"
 source "${SCRIPT_PATH}/zsh/path.zsh"
+test -f "${SCRIPT_PATH}/zsh/secrets.zsh" && source "${SCRIPT_PATH}/zsh/secrets.zsh" || echo "Could not find secrets file. Make sure to copy it to ${SCRIPT_PATH}/zsh/secrets.zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -56,6 +57,9 @@ load-nvmrc
 
 # The Fuck
 eval $(thefuck --alias)
+
+# pyenv
+eval "$(pyenv init --path)"
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit

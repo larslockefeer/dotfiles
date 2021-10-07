@@ -1,12 +1,32 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+# Configuration
+# Casks
+# Consider: android-sdk
+casks=(iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim)
+# Formulae
+# Consider: tmux
+formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv)
+
+confirm () {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Are you sure?} [y/n]" response
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
 install_cask () {
   if brew info $1 | grep -q "Not installed"; then
-    echo "Installing $1"
-    brew install --cask $1
+    confirm "Would you like to install $1 now?" && brew install --cask $1
   else
     echo "Skipping $1 because it is already installed";
   fi
@@ -14,8 +34,7 @@ install_cask () {
 
 install_formula () {
   if brew info $1 | grep -q "Not installed"; then
-    echo "Installing $1"
-    brew install $1
+    confirm "Would you like to install $1 now?" && brew install $1
   else
     echo "Skipping $1 because it is already installed";
   fi
@@ -40,24 +59,19 @@ which brew >/dev/null 2>&1 || (
 
 # Special taps
 brew tap mongodb/brew
+brew tap federico-terzi/espanso
 
-# Consider: android-sdk
-casks="iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel"
+# Install casks
 for i in $casks
 do
   install_cask $i
 done
 
-# Consider: tmux
-formulae="spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0"
+# Install formulae
 for i in $formulae
 do
   install_formula $i
 done
-
-# Post-install nvm things
-mkdir -p ~/.nvm
-nvm install node
 
 # Post-install phoenix things
 test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.js
@@ -65,7 +79,13 @@ test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.
 # Post-install karabiner things
 test -L ~/.config/karabiner || ln -s ~/.dotfiles/config/karabiner ~/.config/karabiner
 
-# Fonts
+# Post-install java things
+test -L ~/.m2/settings.xml || ln -s ~/.dotfiles/m2/settings.xml ~/.m2/settings.xml
+
+# Post-install espanso things
+test -L /Users/larslockefeer/Library/Preferences/espanso || ln -s ~/.dotfiles/config/espanso /Users/larslockefeer/Library/Preferences/espanso
+
+# Install fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
