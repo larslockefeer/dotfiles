@@ -9,7 +9,7 @@ set -e
 casks=(iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim)
 # Formulae
 # Consider: tmux
-formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv)
+formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh)
 
 confirm () {
     # call with a prompt string or use a default
