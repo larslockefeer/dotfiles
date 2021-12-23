@@ -81,3 +81,6 @@ alias 'password=openssl rand -base64 256 | md5 |head -c32;echo'
 alias 'build=mvn clean install'
 alias 'quickbuild=mvn clean install -DskipTests -Dverification.skip'
 alias 'fullbuild=mvn -T 1.0C clean install -Pintegration-tests -Drabbitmq.local -Dmongodb.local'
+
+# Formatting Picnic Java code
+alias 'javaformat=./picnic-shared-tools/format.sh'

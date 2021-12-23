@@ -6,10 +6,10 @@ set -e
 # Configuration
 # Casks
 # Consider: android-sdk
-casks=(iterm2 visual-studio-code alfred slack intellij-idea phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim)
+casks=(iterm2 visual-studio-code alfred slack intellij-idea-ce phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim brave-browser docker raycast)
 # Formulae
 # Consider: tmux
-formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh)
+formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh python)
 
 confirm () {
     # call with a prompt string or use a default
@@ -73,6 +73,9 @@ do
   install_formula $i
 done
 
+# Post-install nvm things
+test -d ~/.nvm || mkdir ~/.nvm
+
 # Post-install phoenix things
 test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.js
 
@@ -80,7 +83,8 @@ test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.
 test -L ~/.config/karabiner || ln -s ~/.dotfiles/config/karabiner ~/.config/karabiner
 
 # Post-install java things
-test -L ~/.m2/settings.xml || ln -s ~/.dotfiles/m2/settings.xml ~/.m2/settings.xml
+test -L /Library/Java/JavaVirtualMachines/openjdk.jdk || sudo ln -sfn /opt/homebrew/Cellar/openjdk/17.0.1_1/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+test -L ~/.m2/settings.xml || ln -s ~/.dotfiles/m2 ~/.m2
 
 # Post-install espanso things
 test -L /Users/larslockefeer/Library/Preferences/espanso || ln -s ~/.dotfiles/config/espanso /Users/larslockefeer/Library/Preferences/espanso

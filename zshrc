@@ -1,12 +1,14 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-theme="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to change 
 # export UPDATE_ZSH_DAYS=13   # How often to auto-update (in days).
 ENABLE_CORRECTION="true"      # Command auto-correction.
-
+# CASE_SENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -30,9 +32,10 @@ source "${SCRIPT_PATH}/zsh/history.zsh"
 source "${SCRIPT_PATH}/zsh/path.zsh"
 test -f "${SCRIPT_PATH}/zsh/secrets.zsh" && source "${SCRIPT_PATH}/zsh/secrets.zsh" || echo "Could not find secrets file. Make sure to copy it to ${SCRIPT_PATH}/zsh/secrets.zsh"
 
+# nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 # This sets up automatic node version switching (https://github.com/creationix/nvm#deeper-shell-integration)
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -55,12 +58,17 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# Java
+JAVA_HOME=/opt/homebrew/Cellar/openjdk/17.0.1_1
+export MAVEN_OPTS="-XX:-MaxFDLimit"
+
 # The Fuck
 eval $(thefuck --alias)
 
 # pyenv
-eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Set Spaceship ZSH as a prompt
+fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath ) # See https://github.com/spaceship-prompt/spaceship-prompt/issues/1057
 autoload -U promptinit; promptinit
 prompt spaceship
