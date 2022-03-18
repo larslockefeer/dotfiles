@@ -6,22 +6,14 @@ set -e
 # Configuration
 # Casks
 # Consider: android-sdk
-casks=(iterm2 visual-studio-code alfred slack intellij-idea-ce phoenix karabiner-elements spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim brave-browser docker raycast)
+casks=(iterm2 visual-studio-code alfred slack intellij-idea-ce spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim brave-browser docker raycast karabiner-elements phoenix gitup charles)
 # Formulae
 # Consider: tmux
-formulae=(spaceship zplug gnupg gnupg2 thefuck jabba maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh python)
+formulae=(spaceship zplug gnupg gnupg2 thefuck maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh python openjdk openjdk@11)
 
 confirm () {
+    # TODO: fix this function
     # call with a prompt string or use a default
-    read -r -p "${1:-Are you sure?} [y/n]" response
-    case "$response" in
-        [yY][eE][sS]|[yY]) 
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
 }
 
 install_cask () {
@@ -83,8 +75,13 @@ test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.
 test -L ~/.config/karabiner || ln -s ~/.dotfiles/config/karabiner ~/.config/karabiner
 
 # Post-install java things
+# Java 17
 test -L /Library/Java/JavaVirtualMachines/openjdk.jdk || sudo ln -sfn /opt/homebrew/Cellar/openjdk/17.0.1_1/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+# Java 11
+test -L /Library/Java/JavaVirtualMachines/openjdk-11.jdk || sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+# mvn
 test -L ~/.m2/settings.xml || ln -s ~/.dotfiles/m2 ~/.m2
+
 
 # Post-install espanso things
 test -L /Users/larslockefeer/Library/Preferences/espanso || ln -s ~/.dotfiles/config/espanso /Users/larslockefeer/Library/Preferences/espanso

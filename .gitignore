@@ -1,1 +1,4 @@
 .DS_Store
+config/karabiner/automatic_backups
+m2/**/
+zsh/secrets.zsh
