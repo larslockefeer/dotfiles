@@ -1,0 +1,15 @@
+add_newline = false
+command_timeout = 1000
+
+[nodejs]
+disabled = true
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+
+[git_status]
+conflicted = "!"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"

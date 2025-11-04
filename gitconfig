@@ -3,13 +3,13 @@
     name = Lars Lockefeer
     email = lars.lockefeer@gmail.com
 [merge]
-    tool = vscode
+	tool = vscode
 [mergetool "vscode"]
-    cmd = "code --wait $MERGED"
+	cmd = code --wait $MERGED
 [diff]
-    tool = vscode
+	tool = vscode
 [difftool "vscode"]
-    cmd = "code --wait --diff $LOCAL $REMOTE"
+	cmd = code --wait --diff $LOCAL $REMOTE
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -20,3 +20,9 @@
     # Operation is run in parallel over 10 threads
     # Source: https://stackoverflow.com/questions/3497123/run-git-pull-over-all-subdirectories
 	all = "!f() { ls -R -d */.git | sed s,/.git,, | xargs -P10 -I{} git -C {} $1; }; f"
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+    insteadOf = "https://github.com/"
+[core]
+	editor = code --wait

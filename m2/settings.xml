@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <servers>
+        <server>
+            <id>picnic</id>
+            <username>${env.NEXUS_USERNAME}</username>
+            <password>${env.NEXUS_PASSWORD}</password>
+        </server>
+        <server>
+            <id>picnic-releases</id>
+            <username>${env.NEXUS_USERNAME}</username>
+            <password>${env.NEXUS_PASSWORD}</password>
+        </server>
+        <server>
+            <id>picnic-snapshots</id>
+            <username>${env.NEXUS_USERNAME}</username>
+            <password>${env.NEXUS_PASSWORD}</password>
+        </server>
+    </servers>
+
+    <mirrors>
+        <mirror>
+            <id>picnic</id>
+            <mirrorOf>*</mirrorOf>
+            <url>https://nexus.global.picnicinternational.com/repository/maven-public</url>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <!-- When a mirror is configured (as we do above), Maven will not
+            resolve snapshot artifacts unless explicitly told to do so. The
+            purpose of this profile is to explicitly enable snapshot
+            resolution. Note that the URLs defined here are effectively bogus,
+            as they are overridden by the mirror anyway. See
+            https://help.sonatype.com/repomanager2/maven-and-other-build-tools/apache-maven. -->
+            <id>proxy-snapshots</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>picnic-snapshots</id>
+                    <url>https://this-url-is-not-accessed-because-of-the-mirror-configuration-above</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>picnic-snapshots</id>
+                    <url>https://this-url-is-not-accessed-because-of-the-mirror-configuration-above</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.organization>picnic-technologies</sonar.organization>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+            </properties>
+        </profile>
+    </profiles>
+
+</settings>

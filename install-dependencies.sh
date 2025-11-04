@@ -6,14 +6,23 @@ set -e
 # Configuration
 # Casks
 # Consider: android-sdk
-casks=(iterm2 visual-studio-code alfred slack intellij-idea-ce spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian flux whatsapp zoom skim brave-browser docker raycast karabiner-elements phoenix gitup charles)
+casks=(warp visual-studio-code alfred slack intellij-idea-ce spotify microsoft-powerpoint microsoft-word microsoft-excel obsidian whatsapp zoom skim brave-browser raycast karabiner-elements phoenix charles netnewswire discord tableau appium-inspector android-studio)
 # Formulae
 # Consider: tmux
-formulae=(spaceship zplug gnupg gnupg2 thefuck maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh espanso pyenv gh python openjdk openjdk@11)
+formulae=(zplug gnupg gnupg2 thefuck maven gradle jq xmlstarlet nvm yarn mongodb-community@5.0 gh pyenv gh python openjdk openjdk@11 openjdk@17 kubectl helm coreutils grep flux docker gitup golang libffi asciinema rbenv ruby-build int128/kubelogin/kubelogin derailed/k9s/k9s starship zsh-autosuggestions zsh-history-substring-search television bat fd)
 
 confirm () {
     # TODO: fix this function
     # call with a prompt string or use a default
+#    read -r -p "${1:-Are you sure?} [y/n]" response
+ #   case "$response" in
+  #      [yY][eE][sS]|[yY]) 
+   #         true
+    #        ;;
+     #   *)
+      #      false
+       #     ;;
+   # esac
 }
 
 install_cask () {
@@ -31,17 +40,6 @@ install_formula () {
     echo "Skipping $1 because it is already installed";
   fi
 }
-
-# Oh my ZSH
-which zsh >/dev/null 2>&1 || (
-  echo "Installing zsh";
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-  # Change default shell
-  echo "Changing the default shell to zsh";
-  echo "$(which zsh)" | sudo tee -a /etc/shells
-  chsh -s $(which zsh)
-)
 
 # Homebrew + dependencies
 which brew >/dev/null 2>&1 || (
@@ -65,6 +63,15 @@ do
   install_formula $i
 done
 
+# Post-install ghostty
+test -L ~/.config/ghostty || ln -s ~/.dotfiles/config/ghostty ~/.config/ghostty
+
+# Post-install starship things
+test -L ~/.config/starship.toml || ln -s ~/.dotfiles/config/starship.toml ~/.config/starship.toml
+
+# Post-install television things
+test -L ~/.config/television || ln -s ~/.dotfiles/config/television ~/.config/television
+
 # Post-install nvm things
 test -d ~/.nvm || mkdir ~/.nvm
 
@@ -74,32 +81,5 @@ test -L ~/.phoenix.js || ln -s ~/.dotfiles/config/phoenix/phoenix.js ~/.phoenix.
 # Post-install karabiner things
 test -L ~/.config/karabiner || ln -s ~/.dotfiles/config/karabiner ~/.config/karabiner
 
-# Post-install java things
-# Java 17
-test -L /Library/Java/JavaVirtualMachines/openjdk.jdk || sudo ln -sfn /opt/homebrew/Cellar/openjdk/17.0.1_1/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-# Java 11
-test -L /Library/Java/JavaVirtualMachines/openjdk-11.jdk || sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 # mvn
 test -L ~/.m2/settings.xml || ln -s ~/.dotfiles/m2 ~/.m2
-
-
-# Post-install espanso things
-test -L /Users/larslockefeer/Library/Preferences/espanso || ln -s ~/.dotfiles/config/espanso /Users/larslockefeer/Library/Preferences/espanso
-
-# Install fonts
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
-
-# RVM & Ruby 2.3.0
-#which rvm >/dev/null 2>&1 || (
-#  echo "Installing rvm";
-#  gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB;
-#  \curl -sSL https://get.rvm.io | bash -s stable;
-#  rvm install 2.3.0 --with-openssl-dir=`brew --prefix openssl`;
-#)
-
-# Bundler
-#which rvm >/dev/null 2>&1 || (
-#  echo "Installing bundler";
-#  gem install bundler;
-#)
