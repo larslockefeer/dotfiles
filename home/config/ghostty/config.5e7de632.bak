@@ -1,0 +1,9 @@
+theme = Catppuccin Frappe
+
+font-size = 14
+font-thicken = true
+
+adjust-cell-height = 15
+
+window-padding-x = 20
+window-padding-y = 20

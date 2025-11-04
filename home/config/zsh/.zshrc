@@ -98,10 +98,10 @@ eval $(thefuck --alias)
 # ---------- Custom: your local tweaks ----------
 # Source additional zsh config files from ~/.zsh/
 SCRIPT_PATH="$HOME/.dotfiles"
-source "${SCRIPT_PATH}/zsh/aliases.zsh"
-source "${SCRIPT_PATH}/zsh/history.zsh"
-source "${SCRIPT_PATH}/zsh/path.zsh"
-test -f "${SCRIPT_PATH}/zsh/secrets.zsh" && source "${SCRIPT_PATH}/zsh/secrets.zsh" || echo "Could not find secrets file. Make sure to copy it to ${SCRIPT_PATH}/zsh/secrets.zsh"
+source "${SCRIPT_PATH}/home/config/zsh/aliases.zsh"
+source "${SCRIPT_PATH}/home/config/zsh/history.zsh"
+source "${SCRIPT_PATH}/home/config/zsh/path.zsh"
+test -f "${SCRIPT_PATH}/home/config/zsh/secrets.zsh" && source "${SCRIPT_PATH}/home/config/zsh/secrets.zsh" || echo "Could not find secrets file. Make sure to copy it to ${SCRIPT_PATH}/home/config/zsh/secrets.zsh"
 
 # Source per-machine overrides (keeps this file clean)
 # [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

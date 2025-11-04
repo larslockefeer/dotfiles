@@ -1,0 +1,39 @@
+# Homebrew Casks Configuration
+# Lines starting with # are comments and will be ignored
+# Empty lines are also ignored
+
+# Development Tools
+gitup-app
+intellij-idea-ce
+visual-studio-code
+
+# Browsers
+google-chrome
+
+# Communication
+slack
+whatsapp
+zoom
+
+# Productivity
+raycast
+obsidian
+
+# Microsoft Office Suite
+microsoft-powerpoint
+microsoft-word
+microsoft-excel
+
+# Media & Entertainment
+spotify
+
+# Utilities
+charles
+flux-app
+ghostty
+karabiner-elements
+phoenix
+skim
+
+# Data & Analytics
+tableau

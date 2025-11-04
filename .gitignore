@@ -1,4 +1,8 @@
 .DS_Store
-config/karabiner/automatic_backups
-m2/**/
-zsh/secrets.zsh
+home/config/karabiner/automatic_backups
+home/m2/**/
+
+home/config/zsh/secrets.zsh
+home/config/zsh/.zsh_history
+
+home/config/brew/*.bak

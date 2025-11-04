@@ -1,0 +1,51 @@
+# Homebrew Formulae Configuration
+# Lines starting with # are comments and will be ignored
+# Empty lines are also ignored
+
+# Build Tools & Package Managers
+gradle
+maven
+nvm
+yarn
+
+# CLI Utilities
+bat
+coreutils
+fd
+grep
+jq
+television
+
+# Cloud & Container Tools
+derailed/k9s/k9s
+helm
+int128/kubelogin/kubelogin
+kubectl
+
+# Database
+tap: mongodb/brew
+mongodb-community@5.0
+
+# Programming Languages & Runtimes
+golang
+openjdk
+openjdk@11
+openjdk@17
+pyenv
+python
+rbenv
+ruby-build
+
+# Security & Encryption
+gnupg
+gnupg2
+
+# Shell & Terminal Enhancements
+starship
+thefuck
+zplug
+zsh-autosuggestions
+zsh-history-substring-search
+
+# Version Control
+gh
